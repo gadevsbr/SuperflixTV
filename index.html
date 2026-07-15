@@ -1,0 +1,1324 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Superflix TV - Manual de instalacao do zero</title><style>:root{--bg:#080a0f;--panel:#141720;--text:#f8fafc;--muted:#a1a1aa;--purple:#8b5cf6;--border:#2a2d36;--gold:#ffc857}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:0;overflow-x:hidden;background:radial-gradient(circle at top,#26154a 0,#080a0f 36%,#05060a 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65}header{position:sticky;top:0;z-index:5;background:rgba(8,10,15,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:16px clamp(14px,2vw,24px);display:flex;gap:14px;align-items:center;min-width:0}.logo{width:42px;height:42px;min-width:42px;border-radius:14px;background:linear-gradient(135deg,#6200ee,#a78bfa);display:grid;place-items:center;font-weight:900}.sub{color:var(--muted);font-size:13px;line-height:1.35;overflow-wrap:anywhere}.wrap{width:min(100%,1280px);margin:0 auto;padding:28px clamp(12px,2vw,18px) 80px;display:grid;grid-template-columns:minmax(220px,280px) minmax(0,1fr);gap:22px;min-width:0}nav{position:sticky;top:86px;align-self:start;background:rgba(20,23,32,.82);border:1px solid var(--border);border-radius:22px;padding:14px;max-height:calc(100vh - 110px);overflow:auto;min-width:0}nav a{display:block;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:12px;font-size:14px;cursor:pointer;overflow-wrap:anywhere}nav a:hover{background:#211a35;color:#fff}main{min-width:0;max-width:100%;overflow:hidden;background:rgba(20,23,32,.82);border:1px solid var(--border);border-radius:28px;padding:clamp(20px,3vw,34px);box-shadow:0 20px 80px rgba(0,0,0,.35)}h1{font-size:clamp(30px,4vw,40px);line-height:1.08;margin:0 0 18px;overflow-wrap:anywhere}h2{margin-top:42px;border-top:1px solid var(--border);padding-top:28px;font-size:clamp(23px,3vw,27px);overflow-wrap:anywhere}h3{margin-top:28px;color:#e9d5ff;overflow-wrap:anywhere}p,li,.note{overflow-wrap:anywhere}p{color:#e5e7eb}li{margin:5px 0;color:#e5e7eb}ol,ul{padding-left:1.35rem}code{background:#070a10;border:1px solid #252936;border-radius:7px;padding:2px 6px;color:#d8b4fe;white-space:normal;overflow-wrap:anywhere}pre{max-width:100%;background:#05070b;border:1px solid #252936;border-radius:16px;padding:16px;overflow:auto;color:#e5e7eb;-webkit-overflow-scrolling:touch}pre code{border:0;background:transparent;padding:0;color:inherit;white-space:pre}.note{border-left:4px solid var(--gold);background:#1f1a10;padding:14px 16px;border-radius:14px;color:#fde68a;margin:16px 0;max-width:100%}hr{border:0;border-top:1px solid var(--border);margin:28px 0}ul.checklist{list-style:none;padding-left:0}.box{display:inline-block;width:15px;height:15px;border:1px solid var(--muted);border-radius:4px;margin-right:8px;vertical-align:-2px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}.badges span{display:inline-block;background:#211a35;color:#d8b4fe;border:1px solid #44326f;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}@media(max-width:1100px){.wrap{grid-template-columns:minmax(190px,240px) minmax(0,1fr);gap:16px}nav a{font-size:13px;padding:7px 8px}}@media(max-width:860px){header{position:relative}.wrap{display:block;padding-top:16px}nav{position:relative;top:auto;max-height:260px;margin-bottom:16px;border-radius:18px}main{border-radius:22px}.sub{font-size:12px}}@media(max-width:560px){header{align-items:flex-start}.logo{width:38px;height:38px;min-width:38px;border-radius:12px}.wrap{padding-left:10px;padding-right:10px}nav{max-height:220px;padding:10px}nav a{font-size:13px}main{padding:18px;border-radius:18px}h1{font-size:28px}.badges span{font-size:11px;padding:4px 8px}pre{padding:12px;border-radius:12px}}</style></head><body><header><div class="logo">S</div><div><strong>Superflix TV</strong><div class="sub">Manual completo de instalacao, Firebase, Cloudflare, marca, build e instrucoes para IA</div></div></header><div class="wrap"><nav><a data-target="1-estado-atual-do-projeto">1. Estado atual do projeto</a><a data-target="2-estrutura-do-projeto">2. Estrutura do projeto</a><a data-target="3-pre-requisitos">3. Pre-requisitos</a><a data-target="4-ordem-recomendada-de-instalacao-do-zero">4. Ordem recomendada de instalacao do zero</a><a data-target="5-personalizacao-basica-do-app">5. Personalizacao basica do app</a><a data-target="6-firebase-do-zero">6. Firebase do zero</a><a data-target="7-google-services-json-problemas-comuns">7. Google Services JSON - problemas comuns</a><a data-target="8-cloudflare-worker-do-zero">8. Cloudflare Worker do zero</a><a data-target="9-mercado-pago-do-zero">9. Mercado Pago do zero</a><a data-target="10-tmdb-do-zero">10. TMDB do zero</a><a data-target="11-admob-do-zero">11. AdMob do zero</a><a data-target="12-local-properties-completo-exemplo">12. `local.properties` completo exemplo</a><a data-target="13-build-debug">13. Build debug</a><a data-target="14-build-release-assinado">14. Build release assinado</a><a data-target="15-painel-admin-dentro-do-app">15. Painel Admin dentro do app</a><a data-target="16-player-providers-no-firestore">16. Player providers no Firestore</a><a data-target="17-revendedor">17. Revendedor</a><a data-target="18-landing-page">18. Landing page</a><a data-target="19-tv-online-e-eventos">19. TV online e eventos</a><a data-target="20-instrucoes-para-ia-coding-assistant">20. Instrucoes para IA/coding assistant</a><a data-target="21-checklist-final-de-instalacao-do-zero">21. Checklist final de instalacao do zero</a><a data-target="22-erros-comuns">22. Erros comuns</a><a data-target="23-arquivos-que-o-comprador-provavelmente-vai-editar">23. Arquivos que o comprador provavelmente vai editar</a><a data-target="24-entrega-para-comprador">24. Entrega para comprador</a><a data-target="25-guia-especifico-para-agentes-de-ia-como-codex-claude-cursor-e-copilot">25. Guia especifico para agentes de IA como Codex, Claude, Cursor e Copilot</a></nav><main><div class="badges"><span>Android</span><span>Firebase</span><span>Cloudflare Worker</span><span>Mercado Pago</span><span>AdMob</span><span>TMDB</span><span>IA/Codex/Claude</span></div><h1 id="superflix-tv-manual-de-instalacao-do-zero">Superflix TV - Manual de instalacao do zero</h1>
+<p>Este manual foi escrito para tres publicos:</p>
+<ol>
+<li>**Comprador/cliente** que recebeu o projeto e quer instalar do zero.</li>
+<li>**Desenvolvedor humano** que vai trocar marca, Firebase, Cloudflare, Mercado Pago e gerar APK.</li>
+<li>**IA/coding assistant** que precisa entender o projeto sem quebrar os fluxos principais.</li>
+</ol>
+<div class="note">Importante: este projeto e uma base Android com catalogo, players externos, Firebase, Cloudflare Worker, AdMob e Mercado Pago. O comprador e responsavel por configurar suas proprias contas, chaves, dominio, politicas, direitos de uso e conformidade legal.</div>
+<hr>
+<h2 id="1-estado-atual-do-projeto">1. Estado atual do projeto</h2>
+<h3 id="funciona-hoje">Funciona hoje</h3>
+<ul>
+<li>App Android nativo em Kotlin + Jetpack Compose.</li>
+<li>Login/cadastro por Firebase Authentication.</li>
+<li>Login com Google.</li>
+<li>Firestore para usuarios, favoritos, historico, progresso, admin, reportes e assinatura Pro.</li>
+<li>Catalogo via TMDB.</li>
+<li>Filmes, series, animes e doramas.</li>
+<li>Tela de detalhes com temporadas e episodios.</li>
+<li>PLAYER 1 principal.</li>
+<li>PLAYER 2, PLAYER 3 e PLAYER 4 opcionais.</li>
+<li>Sistema de moedas com Reward Ads.</li>
+<li>Plano Pro via Mercado Pago + Cloudflare Worker.</li>
+<li>Painel admin dentro do app.</li>
+<li>Painel web para revendedores.</li>
+<li>Landing page para download.</li>
+<li>Firebase Remote Config.</li>
+<li>Firebase Cloud Messaging.</li>
+<li>Picture-in-picture e player fullscreen.</li>
+</ul>
+<h3 id="suspenso-temporariamente">Suspenso temporariamente</h3>
+<ul>
+<li>TV online/canais ao vivo.</li>
+<li>Eventos esportivos.</li>
+</ul>
+<p>Motivo: a fonte externa usada anteriormente caiu/ficou instavel. O app mostra mensagem de manutencao nessas areas.</p>
+<h3 id="nao-existe-mais">Nao existe mais</h3>
+<ul>
+<li>Sistema tecnico de licenca dentro do app.</li>
+</ul>
+<p>Motivo: foi removido para evitar custo, manutencao e risco de bloquear clientes legitimos. Para venda, use contrato/licenca comercial, entrega controlada e suporte pago.</p>
+<hr>
+<h2 id="2-estrutura-do-projeto">2. Estrutura do projeto</h2>
+<pre><code>Superflix/
+  app/                         App Android principal
+  app/src/main/java/...         Codigo Kotlin/Compose
+  app/src/main/AndroidManifest.xml
+  app/build.gradle.kts
+
+  cloudflare-worker/            Worker para Mercado Pago, revendas, trending e backend serverless
+  cloudflare-worker/src/index.ts
+  cloudflare-worker/wrangler.toml
+
+  hosting/                      Firebase Hosting usado pelo player wrapper
+  hosting/player.html
+  hosting/subscription-return.html
+
+  reseller-panel/               Painel web de revendedores
+  landing/                      Landing page de venda/download do APK
+
+  firestore.rules               Regras do Firestore
+  firestore.indexes.json        Indices do Firestore
+  firebase.json                 Config do Firebase Hosting/Firestore
+
+  docs/                         Documentacao deste projeto</code></pre>
+<hr>
+<h2 id="3-pre-requisitos">3. Pre-requisitos</h2>
+<p>Instale antes de comecar:</p>
+<ul>
+<li>Android Studio.</li>
+<li>JDK do Android Studio, normalmente ja vem junto.</li>
+<li>Node.js LTS.</li>
+<li>Conta Firebase.</li>
+<li>Conta Cloudflare.</li>
+<li>Conta Mercado Pago.</li>
+<li>Conta TMDB.</li>
+<li>Conta AdMob.</li>
+<li>Firebase CLI.</li>
+<li>Wrangler CLI, via `npx wrangler`.</li>
+</ul>
+<p>Comandos uteis:</p>
+<pre><code>node -v
+npm -v</code></pre>
+<p>Para compilar Android pelo terminal:</p>
+<pre><code>$env:JAVA_HOME=&quot;$env:ProgramFiles\Android\Android Studio\jbr&quot;
+.\gradlew.bat :app:compileDebugKotlin --no-daemon</code></pre>
+<hr>
+<h2 id="4-ordem-recomendada-de-instalacao-do-zero">4. Ordem recomendada de instalacao do zero</h2>
+<p>Siga nesta ordem para evitar retrabalho:</p>
+<ol>
+<li>Escolher nome do app, package name e cor principal.</li>
+<li>Criar projeto Firebase.</li>
+<li>Criar app Android no Firebase com o package name escolhido.</li>
+<li>Adicionar SHA-1/SHA-256 debug e release no Firebase.</li>
+<li>Baixar `google-services.json` e colocar no projeto.</li>
+<li>Ativar Authentication no Firebase.</li>
+<li>Criar Firestore em modo producao.</li>
+<li>Publicar regras do Firestore.</li>
+<li>Configurar Remote Config.</li>
+<li>Configurar Firebase Hosting para `player.html`.</li>
+<li>Criar service account do Firebase para o Worker.</li>
+<li>Criar conta/app no Mercado Pago.</li>
+<li>Configurar Cloudflare Worker.</li>
+<li>Configurar AdMob.</li>
+<li>Configurar TMDB API Key.</li>
+<li>Criar `local.properties`.</li>
+<li>Buildar APK debug e testar.</li>
+<li>Buildar APK release assinado.</li>
+<li>Testar em aparelho limpo.</li>
+<li>Atualizar landing page com APK final.</li>
+</ol>
+<hr>
+<h2 id="5-personalizacao-basica-do-app">5. Personalizacao basica do app</h2>
+<h3 id="5-1-mudar-nome-do-app">5.1 Mudar nome do app</h3>
+<p>Arquivo:</p>
+<pre><code>app/src/main/AndroidManifest.xml</code></pre>
+<p>Altere:</p>
+<pre><code>&lt;application
+    android:label=&quot;Superflix TV&quot;</code></pre>
+<p>Exemplo:</p>
+<pre><code>android:label=&quot;Meu Cine App&quot;</code></pre>
+<p>Tambem procure textos de marca em:</p>
+<pre><code>app/src/main/java/com/superflixtv/app/MainActivity.kt
+app/src/main/java/com/superflixtv/app/WelcomeAuthUi.kt
+landing/index.html
+reseller-panel/index.html</code></pre>
+<p>Busque por:</p>
+<pre><code>SUPERFLIX
+Superflix
+Superflix TV</code></pre>
+<p>Comando:</p>
+<pre><code>rg -n &quot;SUPERFLIX|Superflix|Superflix TV&quot; app landing reseller-panel</code></pre>
+<p>Pontos comuns:</p>
+<ul>
+<li>Header do app: `MainActivity.kt`, funcao `Header`.</li>
+<li>Tela inicial/login: `WelcomeAuthUi.kt`.</li>
+<li>Nome no painel revendedor: `reseller-panel/index.html`.</li>
+<li>Landing page: `landing/index.html`.</li>
+</ul>
+<hr>
+<h3 id="5-2-mudar-package-name">5.2 Mudar package name</h3>
+<p>Package atual:</p>
+<pre><code>com.superflixtv.app</code></pre>
+<p>Arquivos principais:</p>
+<pre><code>app/build.gradle.kts</code></pre>
+<p>Altere:</p>
+<pre><code>namespace = &quot;com.superflixtv.app&quot;
+applicationId = &quot;com.superflixtv.app&quot;</code></pre>
+<p>Para, por exemplo:</p>
+<pre><code>namespace = &quot;com.cliente.meuapp&quot;
+applicationId = &quot;com.cliente.meuapp&quot;</code></pre>
+<p>Aten??o:</p>
+<ul>
+<li>O Firebase Android app precisa usar exatamente o mesmo package name.</li>
+<li>O `google-services.json` precisa ser baixado novamente depois disso.</li>
+<li>O Google Login depende desse package + SHA.</li>
+<li>AdMob tambem deve usar o app correto.</li>
+</ul>
+<p>Opcionalmente, renomeie as pastas Kotlin:</p>
+<pre><code>app/src/main/java/com/superflixtv/app</code></pre>
+<p>para:</p>
+<pre><code>app/src/main/java/com/cliente/meuapp</code></pre>
+<p>Se fizer isso, altere o <code>package com.superflixtv.app</code> em todos os <code>.kt</code>. Isso e mais trabalhoso. Para venda rapida, trocar apenas <code>applicationId</code>/<code>namespace</code> pode ser suficiente, mas o ideal profissional e renomear tudo.</p>
+<hr>
+<h3 id="5-3-mudar-cor-principal-do-app">5.3 Mudar cor principal do app</h3>
+<p>Cores principais ficam espalhadas em alguns arquivos.</p>
+<p>Principal:</p>
+<pre><code>app/src/main/java/com/superflixtv/app/MainActivity.kt</code></pre>
+<p>Linha parecida:</p>
+<pre><code>private val Bg = Color(0xFF080A0F)
+private val Surface = Color(0xFF141720)
+private val Purple = Color(0xFF8B5CF6)</code></pre>
+<p>Troque <code>Purple</code> pela cor da marca.</p>
+<p>Exemplo azul:</p>
+<pre><code>private val Purple = Color(0xFF2563EB)</code></pre>
+<p>Tela de login:</p>
+<pre><code>app/src/main/java/com/superflixtv/app/WelcomeAuthUi.kt</code></pre>
+<p>Procure:</p>
+<pre><code>WelcomePurple=Color(0xFF8B5CF6)</code></pre>
+<p>Outros pontos com roxo fixo:</p>
+<pre><code>rg -n &quot;8B5CF6|6200EE|Purple|WelcomePurple&quot; app/src/main/java</code></pre>
+<p>Arquivos que podem ter cor fixa:</p>
+<pre><code>AdminUi.kt
+CatalogUi.kt
+LibraryUi.kt
+MainActivity.kt
+WelcomeAuthUi.kt</code></pre>
+<p>Recomendacao para futuro: centralizar cores em um arquivo <code>Theme.kt</code>.</p>
+<hr>
+<h3 id="5-4-mudar-icone-do-app">5.4 Mudar icone do app</h3>
+<p>Arquivo atual:</p>
+<pre><code>app/src/main/res/drawable/ic_launcher.xml</code></pre>
+<p>Referencias no Manifest:</p>
+<pre><code>android:icon=&quot;@drawable/ic_launcher&quot;
+android:banner=&quot;@drawable/ic_launcher&quot;</code></pre>
+<p>Para trocar:</p>
+<ol>
+<li>No Android Studio, clique com botao direito em `app`.</li>
+<li>`New &gt; Image Asset`.</li>
+<li>Gere icones adaptativos.</li>
+<li>Confirme se o Manifest aponta para o novo icone.</li>
+</ol>
+<p>Splash screen tambem usa:</p>
+<pre><code>app/src/main/res/values/styles.xml</code></pre>
+<p>Procure:</p>
+<pre><code>&lt;item name=&quot;windowSplashScreenAnimatedIcon&quot;&gt;@drawable/ic_launcher&lt;/item&gt;</code></pre>
+<hr>
+<h2 id="6-firebase-do-zero">6. Firebase do zero</h2>
+<h3 id="6-1-criar-projeto-firebase">6.1 Criar projeto Firebase</h3>
+<p>Tarefa humana no Firebase Console:</p>
+<ol>
+<li>Acesse Firebase Console.</li>
+<li>Clique em `Add project` / `Adicionar projeto`.</li>
+<li>Escolha o nome do projeto.</li>
+<li>Ative Google Analytics se quiser usar metricas.</li>
+<li>Crie o projeto.</li>
+</ol>
+<hr>
+<h3 id="6-2-criar-app-android-no-firebase">6.2 Criar app Android no Firebase</h3>
+<p>Tarefa humana no Firebase Console:</p>
+<ol>
+<li>Dentro do projeto Firebase, clique no icone Android.</li>
+<li>Informe o package name do app.</li>
+</ol>
+<p>Exemplo atual:</p>
+<pre><code>com.superflixtv.app</code></pre>
+<ol>
+<li>Informe o apelido do app.</li>
+<li>Adicione SHA-1 e SHA-256.</li>
+<li>Baixe o arquivo `google-services.json`.</li>
+</ol>
+<hr>
+<h3 id="6-3-onde-colocar-o-google-services-json">6.3 Onde colocar o `google-services.json`</h3>
+<p>O arquivo precisa ficar exatamente aqui:</p>
+<pre><code>app/google-services.json</code></pre>
+<p>Nao coloque em:</p>
+<pre><code>google-services.json
+app/src/main/google-services.json
+backend/google-services.json</code></pre>
+<p>Caminho correto:</p>
+<pre><code>Superflix/app/google-services.json</code></pre>
+<p>Depois de substituir:</p>
+<ol>
+<li>Android Studio: `File &gt; Sync Project with Gradle Files`.</li>
+<li>Faca `Build &gt; Clean Project`.</li>
+<li>Faca `Build &gt; Rebuild Project`.</li>
+<li>Gere APK novo.</li>
+</ol>
+<p>Se mudar package name ou SHA no Firebase, baixe outro <code>google-services.json</code>.</p>
+<hr>
+<h3 id="6-4-sha-1-e-sha-256">6.4 SHA-1 e SHA-256</h3>
+<p>Para Google Login funcionar, o Firebase precisa conhecer a assinatura do APK.</p>
+<p>Comando:</p>
+<pre><code>$env:JAVA_HOME=&quot;$env:ProgramFiles\Android\Android Studio\jbr&quot;
+.\gradlew.bat :app:signingReport --no-daemon</code></pre>
+<p>Cadastre no Firebase:</p>
+<ul>
+<li>SHA-1 debug, para testes pelo Android Studio/debug APK.</li>
+<li>SHA-256 debug, recomendado.</li>
+<li>SHA-1 release, para APK distribuido.</li>
+<li>SHA-256 release, para APK distribuido e Play Integrity.</li>
+</ul>
+<p>Se publicar na Play Store, tambem cadastre o SHA da Play App Signing.</p>
+<hr>
+<h3 id="6-5-ativar-authentication">6.5 Ativar Authentication</h3>
+<p>Tarefa humana no Firebase Console:</p>
+<ol>
+<li>Va em `Authentication`.</li>
+<li>Clique em `Get started`.</li>
+<li>Ative `Email/Password`.</li>
+<li>Ative `Google`.</li>
+<li>Em Google, selecione email de suporte.</li>
+<li>Salve.</li>
+</ol>
+<p>Se o login Google mostrar erro <code>10:</code>:</p>
+<ul>
+<li>SHA errado ou ausente.</li>
+<li>`google-services.json` antigo.</li>
+<li>APK buildado antes de baixar o novo JSON.</li>
+<li>Package name diferente.</li>
+</ul>
+<p>Corre??o:</p>
+<ol>
+<li>Adicione SHA correto no Firebase.</li>
+<li>Baixe novo `google-services.json`.</li>
+<li>Substitua em `app/google-services.json`.</li>
+<li>Clean/Rebuild.</li>
+<li>Instale APK novo.</li>
+</ol>
+<hr>
+<h3 id="6-6-criar-firestore">6.6 Criar Firestore</h3>
+<p>Tarefa humana no Firebase Console:</p>
+<ol>
+<li>Va em `Firestore Database`.</li>
+<li>Clique em `Create database`.</li>
+<li>Escolha `Production mode`.</li>
+<li>Escolha regiao.</li>
+<li>Crie.</li>
+</ol>
+<p>Depois publique as regras do projeto.</p>
+<p>Com Firebase CLI:</p>
+<pre><code>firebase login
+firebase use --add
+firebase deploy --only firestore:rules,firestore:indexes</code></pre>
+<p>Se <code>firebase</code> nao existir:</p>
+<pre><code>npm install -g firebase-tools
+firebase login</code></pre>
+<p>Alternativa sem instalar global:</p>
+<pre><code>npx firebase-tools login
+npx firebase-tools deploy --only firestore:rules,firestore:indexes</code></pre>
+<hr>
+<h3 id="6-7-criar-usuario-admin">6.7 Criar usuario admin</h3>
+<p>Depois de criar uma conta no app, pegue o UID do usuario no Firebase Authentication.</p>
+<p>No Firestore, crie colecao:</p>
+<pre><code>admins</code></pre>
+<p>Documento:</p>
+<pre><code>admins/{UID_DO_USUARIO}</code></pre>
+<p>Campos:</p>
+<pre><code>enabled: true       boolean
+name: &quot;Nome&quot;        string
+role: &quot;owner&quot;       string</code></pre>
+<p>Exemplo:</p>
+<pre><code>admins/NUX1IgH8ytgMxON6rmbuOS7y1bu2
+  enabled: true
+  name: &quot;Mateus&quot;
+  role: &quot;owner&quot;</code></pre>
+<p>Importante:</p>
+<ul>
+<li>Colecao e `admins`, plural.</li>
+<li>`enabled` e boolean, nao string.</li>
+<li>`role` e string.</li>
+</ul>
+<p>Depois disso, feche e abra o app. A aba <code>Admin</code> deve aparecer.</p>
+<hr>
+<h3 id="6-8-remote-config">6.8 Remote Config</h3>
+<p>Tarefa humana no Firebase Console:</p>
+<ol>
+<li>Va em `Remote Config`.</li>
+<li>Crie os parametros abaixo.</li>
+<li>Publique as alteracoes.</li>
+</ol>
+<p>Parametros usados pelo app:</p>
+<pre><code>minimum_version           number   Ex: 1
+unlock_cost               number   Ex: 2
+unlock_hours              number   Ex: 6
+missions_enabled          boolean  true/false
+banner_enabled            boolean  true/false
+download_url              string   URL da pagina/APK
+pro_price                 string   Ex: 5,99
+global_message            string   Aviso opcional na Home
+report_player_enabled     boolean  true/false</code></pre>
+<p>Uso:</p>
+<ul>
+<li>`minimum_version`: se for maior que `versionCode`, o app obriga atualizar.</li>
+<li>`download_url`: link usado na tela de atualizacao obrigatoria.</li>
+<li>`global_message`: mostra aviso na Home.</li>
+<li>`pro_price`: aparece na Central Pro.</li>
+</ul>
+<hr>
+<h3 id="6-9-firebase-cloud-messaging">6.9 Firebase Cloud Messaging</h3>
+<p>O app ja registra token FCM em:</p>
+<pre><code>users/{uid}/devices</code></pre>
+<p>E assina topicos:</p>
+<pre><code>all_users
+superflix_all</code></pre>
+<p>Para enviar notificacao:</p>
+<ol>
+<li>Firebase Console.</li>
+<li>Messaging / Cloud Messaging.</li>
+<li>Nova campanha.</li>
+<li>Escolha app Android ou topico.</li>
+<li>Para todos, use topico:</li>
+</ol>
+<pre><code>superflix_all</code></pre>
+<hr>
+<h3 id="6-10-firebase-hosting-para-player-wrapper">6.10 Firebase Hosting para player wrapper</h3>
+<p>O projeto usa Firebase Hosting para servir:</p>
+<pre><code>hosting/player.html
+hosting/subscription-return.html</code></pre>
+<p>Deploy:</p>
+<pre><code>firebase deploy --only hosting</code></pre>
+<p>Depois configure no <code>local.properties</code>:</p>
+<pre><code>player.wrapperUrl=https://SEU-PROJETO.web.app/player.html</code></pre>
+<p>Se nao fizer isso, o app pode continuar apontando para o hosting antigo.</p>
+<hr>
+<h3 id="6-11-app-check-play-integrity">6.11 App Check / Play Integrity</h3>
+<p>O projeto tem App Check:</p>
+<ul>
+<li>Debug usa provider debug.</li>
+<li>Release usa Play Integrity.</li>
+</ul>
+<p>Arquivos:</p>
+<pre><code>app/src/debug/java/com/superflixtv/app/AppCheckProvider.kt
+app/src/release/java/com/superflixtv/app/AppCheckProvider.kt</code></pre>
+<p>Para testes fora da Play Store, cuidado com enforcement do App Check. Se ativar enforcement antes de configurar tudo, pode quebrar Firestore/Auth/Remote Config.</p>
+<p>Recomendacao:</p>
+<ol>
+<li>Durante testes, nao force enforcement.</li>
+<li>Configure SHA-256 corretamente.</li>
+<li>Se for usar Play Store, configure Play Integrity/App Check com calma.</li>
+<li>So depois ative enforcement.</li>
+</ol>
+<p>No debug, o Logcat pode mostrar um token como:</p>
+<pre><code>Enter this debug secret into the allow list...</code></pre>
+<p>Adicione esse token no Firebase App Check se quiser testar com enforcement.</p>
+<hr>
+<h2 id="7-google-services-json-problemas-comuns">7. Google Services JSON - problemas comuns</h2>
+<h3 id="problema-login-google-mostra-10">Problema: login Google mostra `10:`</h3>
+<p>Causa quase sempre e uma destas:</p>
+<ul>
+<li>SHA-1 nao adicionado.</li>
+<li>SHA-256 nao adicionado.</li>
+<li>`google-services.json` antigo.</li>
+<li>Package name diferente do Firebase.</li>
+<li>APK foi buildado antes de atualizar o JSON.</li>
+</ul>
+<p>Resolucao:</p>
+<ol>
+<li>Gere `signingReport`.</li>
+<li>Adicione SHA no Firebase.</li>
+<li>Baixe novo `google-services.json`.</li>
+<li>Substitua em `app/google-services.json`.</li>
+<li>Clean/Rebuild.</li>
+<li>Instale APK novo.</li>
+</ol>
+<h3 id="problema-default-web-client-id-ausente">Problema: `default_web_client_id` ausente</h3>
+<p>Abra <code>app/google-services.json</code> e procure:</p>
+<pre><code>oauth_client
+client_type: 3</code></pre>
+<p>Se nao existir, o Google Sign-In pode falhar. Normalmente baixar o JSON depois de ativar Google Login e adicionar SHA resolve.</p>
+<hr>
+<h2 id="8-cloudflare-worker-do-zero">8. Cloudflare Worker do zero</h2>
+<p>O Worker cuida de:</p>
+<ul>
+<li>Assinatura Pro via Mercado Pago.</li>
+<li>Webhook Mercado Pago.</li>
+<li>Painel revendedor.</li>
+<li>Pos-pago de revendedores.</li>
+<li>PIX para divida pos-paga.</li>
+<li>Endpoint `/content/trending` para landing.</li>
+</ul>
+<p>Arquivo principal:</p>
+<pre><code>cloudflare-worker/src/index.ts</code></pre>
+<p>Config:</p>
+<pre><code>cloudflare-worker/wrangler.toml</code></pre>
+<hr>
+<h3 id="8-1-o-que-o-humano-faz-no-cloudflare">8.1 O que o humano faz no Cloudflare</h3>
+<ol>
+<li>Criar conta Cloudflare.</li>
+<li>Instalar/logar Wrangler:</li>
+</ol>
+<pre><code>cd cloudflare-worker
+npx wrangler login</code></pre>
+<ol>
+<li>Conferir `wrangler.toml`.</li>
+<li>Definir secrets.</li>
+<li>Deployar Worker.</li>
+<li>Copiar URL final do Worker.</li>
+<li>Colocar a URL no app via `local.properties`.</li>
+<li>Colocar a URL no webhook do Mercado Pago.</li>
+</ol>
+<hr>
+<h3 id="8-2-variaveis-em-wrangler-toml">8.2 Variaveis em `wrangler.toml`</h3>
+<p>Edite:</p>
+<pre><code>name = &quot;superflix-subscriptions&quot;
+main = &quot;src/index.ts&quot;
+compatibility_date = &quot;2026-07-12&quot;
+
+[vars]
+FIREBASE_PROJECT_ID = &quot;seu-projeto&quot;
+FIREBASE_API_KEY = &quot;sua-api-key-web/firebase&quot;
+APP_RETURN_URL = &quot;https://seu-projeto.web.app/subscription-return.html&quot;
+PLAN_TITLE = &quot;Nome do App Premium&quot;
+PLAN_PRICE = &quot;5.99&quot;
+RESELLER_POSTPAID_CREDIT_PRICE = &quot;2.99&quot;</code></pre>
+<p>Pode mudar <code>name</code> para o nome do cliente:</p>
+<pre><code>name = &quot;meuapp-subscriptions&quot;</code></pre>
+<p>A URL final fica parecida com:</p>
+<pre><code>https://meuapp-subscriptions.SEUSUBDOMINIO.workers.dev</code></pre>
+<hr>
+<h3 id="8-3-secrets-do-worker">8.3 Secrets do Worker</h3>
+<p>Nunca coloque esses valores diretamente no <code>wrangler.toml</code>:</p>
+<pre><code>MERCADOPAGO_ACCESS_TOKEN
+MERCADOPAGO_WEBHOOK_SECRET
+FIREBASE_CLIENT_EMAIL
+FIREBASE_PRIVATE_KEY</code></pre>
+<p>Configure assim:</p>
+<pre><code>cd cloudflare-worker
+npx wrangler secret put MERCADOPAGO_ACCESS_TOKEN
+npx wrangler secret put MERCADOPAGO_WEBHOOK_SECRET
+npx wrangler secret put FIREBASE_CLIENT_EMAIL
+npx wrangler secret put FIREBASE_PRIVATE_KEY</code></pre>
+<p>Se o Worker usa TMDB no endpoint de trending, configure tambem:</p>
+<pre><code>npx wrangler secret put TMDB_API_KEY</code></pre>
+<p>Ou coloque como var, mas secret e mais seguro.</p>
+<hr>
+<h3 id="8-4-onde-pegar-firebase-client-email-e-firebase-private-key">8.4 Onde pegar `FIREBASE_CLIENT_EMAIL` e `FIREBASE_PRIVATE_KEY`</h3>
+<p>Tarefa humana no Firebase/Google Cloud:</p>
+<ol>
+<li>Firebase Console.</li>
+<li>Configuracoes do projeto.</li>
+<li>Aba `Service accounts` / `Contas de servico`.</li>
+<li>Clique em gerar nova chave privada.</li>
+<li>Baixe o JSON.</li>
+</ol>
+<p>No JSON:</p>
+<pre><code>{
+  &quot;client_email&quot;: &quot;firebase-adminsdk-xxxxx@seu-projeto.iam.gserviceaccount.com&quot;,
+  &quot;private_key&quot;: &quot;-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n&quot;
+}</code></pre>
+<p>Use:</p>
+<pre><code>FIREBASE_CLIENT_EMAIL = client_email
+FIREBASE_PRIVATE_KEY = private_key</code></pre>
+<p>No <code>wrangler secret put FIREBASE_PRIVATE_KEY</code>, cole a chave inteira, incluindo:</p>
+<pre><code>-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----</code></pre>
+<p>Se der erro por quebra de linha, substitua quebras reais por <code>\n</code> ou cole exatamente como o terminal aceitar.</p>
+<hr>
+<h3 id="8-5-deploy-do-worker">8.5 Deploy do Worker</h3>
+<pre><code>cd cloudflare-worker
+npm install
+npx tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --lib ES2022,WebWorker src/index.ts
+npx wrangler deploy</code></pre>
+<p>Teste:</p>
+<pre><code>Invoke-WebRequest https://SEU-WORKER.workers.dev/health</code></pre>
+<p>Resposta esperada:</p>
+<pre><code>{&quot;ok&quot;:true}</code></pre>
+<hr>
+<h3 id="8-6-colocar-worker-no-app">8.6 Colocar Worker no app</h3>
+<p>Arquivo local, nao versionado:</p>
+<pre><code>local.properties</code></pre>
+<p>Adicione:</p>
+<pre><code>subscription.workerUrl=https://SEU-WORKER.workers.dev</code></pre>
+<p>Depois:</p>
+<ol>
+<li>Sync Gradle.</li>
+<li>Clean/Rebuild.</li>
+<li>Gere APK novo.</li>
+</ol>
+<hr>
+<h2 id="9-mercado-pago-do-zero">9. Mercado Pago do zero</h2>
+<h3 id="9-1-checkout-recomendado">9.1 Checkout recomendado</h3>
+<p>Para assinatura mensal Pro, use:</p>
+<pre><code>Assinaturas com integracao</code></pre>
+<p>O Worker usa endpoint de preapproval do Mercado Pago.</p>
+<h3 id="9-2-o-que-o-humano-faz-no-mercado-pago">9.2 O que o humano faz no Mercado Pago</h3>
+<ol>
+<li>Criar conta Mercado Pago.</li>
+<li>Criar aplicacao/integracao.</li>
+<li>Pegar `Access Token`.</li>
+<li>Configurar webhook.</li>
+<li>Selecionar eventos de assinatura/pagamento conforme tela do Mercado Pago.</li>
+<li>Copiar webhook secret.</li>
+</ol>
+<p>Webhook URL:</p>
+<pre><code>https://SEU-WORKER.workers.dev/webhooks/mercadopago</code></pre>
+<p>Secrets no Worker:</p>
+<pre><code>npx wrangler secret put MERCADOPAGO_ACCESS_TOKEN
+npx wrangler secret put MERCADOPAGO_WEBHOOK_SECRET</code></pre>
+<h3 id="9-3-preco-do-plano">9.3 Preco do plano</h3>
+<p>Arquivo:</p>
+<pre><code>cloudflare-worker/wrangler.toml</code></pre>
+<p>Campo:</p>
+<pre><code>PLAN_PRICE = &quot;5.99&quot;</code></pre>
+<p>No app, a exibicao vem do Remote Config:</p>
+<pre><code>pro_price = &quot;5,99&quot;</code></pre>
+<p>Mantenha os dois coerentes.</p>
+<hr>
+<h2 id="10-tmdb-do-zero">10. TMDB do zero</h2>
+<p>O catalogo depende de TMDB.</p>
+<p>Tarefa humana:</p>
+<ol>
+<li>Criar conta em TMDB.</li>
+<li>Criar API key.</li>
+<li>Colocar no `local.properties`:</li>
+</ol>
+<pre><code>tmdb.apiKey=SUA_CHAVE_TMDB</code></pre>
+<p>O Worker tambem pode usar TMDB para landing/trending:</p>
+<pre><code>cd cloudflare-worker
+npx wrangler secret put TMDB_API_KEY</code></pre>
+<p>Se <code>tmdb.apiKey</code> estiver vazio, o catalogo do app nao carrega corretamente.</p>
+<hr>
+<h2 id="11-admob-do-zero">11. AdMob do zero</h2>
+<h3 id="11-1-criar-app-no-admob">11.1 Criar app no AdMob</h3>
+<p>Tarefa humana no AdMob:</p>
+<ol>
+<li>Criar app Android.</li>
+<li>Informar se esta ou nao na Play Store.</li>
+<li>Criar bloco de anuncio Rewarded.</li>
+<li>Copiar App ID.</li>
+<li>Copiar Ad Unit ID Rewarded.</li>
+</ol>
+<h3 id="11-2-trocar-app-id-do-admob">11.2 Trocar App ID do AdMob</h3>
+<p>Arquivo:</p>
+<pre><code>app/src/main/AndroidManifest.xml</code></pre>
+<p>Troque:</p>
+<pre><code>&lt;meta-data
+    android:name=&quot;com.google.android.gms.ads.APPLICATION_ID&quot;
+    android:value=&quot;ca-app-pub-3940256099942544~3347511713&quot; /&gt;</code></pre>
+<p>Pelo App ID real:</p>
+<pre><code>android:value=&quot;ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY&quot;</code></pre>
+<h3 id="11-3-trocar-rewarded-ad-unit-id">11.3 Trocar Rewarded Ad Unit ID</h3>
+<p>Arquivo:</p>
+<pre><code>app/build.gradle.kts</code></pre>
+<p>Troque:</p>
+<pre><code>buildConfigField(&quot;String&quot;, &quot;ADMOB_REWARDED_ID&quot;, &quot;\&quot;ca-app-pub-3940256099942544/5224354917\&quot;&quot;)</code></pre>
+<p>Pelo ID real:</p>
+<pre><code>buildConfigField(&quot;String&quot;, &quot;ADMOB_REWARDED_ID&quot;, &quot;\&quot;ca-app-pub-XXXXXXXXXXXXXXXX/ZZZZZZZZZZ\&quot;&quot;)</code></pre>
+<p>Durante desenvolvimento, mantenha IDs de teste para evitar trafego invalido.</p>
+<hr>
+<h2 id="12-local-properties-completo-exemplo">12. `local.properties` completo exemplo</h2>
+<p>Arquivo:</p>
+<pre><code>local.properties</code></pre>
+<p>Exemplo:</p>
+<pre><code>sdk.dir=C\:\\Users\\SEU_USUARIO\\AppData\\Local\\Android\\Sdk
+
+tmdb.apiKey=SUA_CHAVE_TMDB
+player.wrapperUrl=https://SEU-PROJETO.web.app/player.html
+subscription.workerUrl=https://SEU-WORKER.workers.dev
+backend.baseUrl=https://seu-backend-legado.com/</code></pre>
+<p>Observacoes:</p>
+<ul>
+<li>`backend.baseUrl` hoje e legado/opcional.</li>
+<li>Catalogo atual usa TMDB.</li>
+<li>Assinatura usa `subscription.workerUrl`.</li>
+<li>Player wrapper usa `player.wrapperUrl`.</li>
+</ul>
+<hr>
+<h2 id="13-build-debug">13. Build debug</h2>
+<p>No Android Studio:</p>
+<ol>
+<li>Abra a pasta do projeto.</li>
+<li>Aguarde sync Gradle.</li>
+<li>Confirme `app/google-services.json`.</li>
+<li>Confirme `local.properties`.</li>
+<li>Rode em aparelho/emulador.</li>
+</ol>
+<p>Pelo terminal:</p>
+<pre><code>$env:JAVA_HOME=&quot;$env:ProgramFiles\Android\Android Studio\jbr&quot;
+.\gradlew.bat :app:assembleDebug --no-daemon</code></pre>
+<p>APK gerado:</p>
+<pre><code>app/build/outputs/apk/debug/app-debug.apk</code></pre>
+<hr>
+<h2 id="14-build-release-assinado">14. Build release assinado</h2>
+<h3 id="14-1-criar-keystore">14.1 Criar keystore</h3>
+<p>Pelo Android Studio:</p>
+<ol>
+<li>`Build &gt; Generate Signed Bundle / APK`.</li>
+<li>Escolha APK.</li>
+<li>Crie nova keystore ou selecione existente.</li>
+<li>Guarde senha e alias.</li>
+</ol>
+<p>Nunca perca a keystore. Sem ela, atualizacoes futuras podem nao instalar por cima.</p>
+<h3 id="14-2-sha-release">14.2 SHA release</h3>
+<p>Depois de configurar release, rode:</p>
+<pre><code>$env:JAVA_HOME=&quot;$env:ProgramFiles\Android\Android Studio\jbr&quot;
+.\gradlew.bat :app:signingReport --no-daemon</code></pre>
+<p>Cadastre SHA-1 e SHA-256 release no Firebase e baixe novo <code>google-services.json</code>.</p>
+<h3 id="14-3-gerar-apk-release">14.3 Gerar APK release</h3>
+<pre><code>.\gradlew.bat :app:assembleRelease --no-daemon</code></pre>
+<p>APK geralmente fica em:</p>
+<pre><code>app/build/outputs/apk/release/</code></pre>
+<p>Ou, se gerado pelo Android Studio:</p>
+<pre><code>app/release/app-release.apk</code></pre>
+<hr>
+<h2 id="15-painel-admin-dentro-do-app">15. Painel Admin dentro do app</h2>
+<p>Para aparecer:</p>
+<ol>
+<li>Usuario precisa estar logado.</li>
+<li>UID precisa existir em `admins/{uid}`.</li>
+<li>Campo `enabled` precisa ser `true` boolean.</li>
+</ol>
+<p>Funcoes:</p>
+<ul>
+<li>Editar player manual de canais, quando TV voltar.</li>
+<li>Editar templates dos players do catalogo.</li>
+<li>Gerenciar usuario por UID.</li>
+<li>Liberar/remover Pro manual.</li>
+<li>Ver reportes de player quebrado.</li>
+</ul>
+<hr>
+<h2 id="16-player-providers-no-firestore">16. Player providers no Firestore</h2>
+<p>Colecao:</p>
+<pre><code>player_providers</code></pre>
+<p>Documentos:</p>
+<pre><code>player1
+player2
+player3
+player4</code></pre>
+<p>Campos:</p>
+<pre><code>template: string
+enabled: boolean
+updatedAt: timestamp
+updatedBy: string</code></pre>
+<p>Placeholders aceitos:</p>
+<pre><code>{id}
+{season}
+{episode}
+{episodePath}
+{mediaPath}
+{type}</code></pre>
+<p>Exemplo PLAYER 1:</p>
+<pre><code>https://mgeb.top/embed/{id}{episodePath}?player=megaplay#color:8b5cf6</code></pre>
+<p>PLAYER 1 deve continuar sendo o principal.</p>
+<hr>
+<h2 id="17-revendedor">17. Revendedor</h2>
+<p>Painel web:</p>
+<pre><code>reseller-panel/index.html</code></pre>
+<p>Ele conversa com o Worker.</p>
+<p>Se hospedar local via <code>file://</code>, CORS pode falhar. Rode servidor local:</p>
+<pre><code>cd reseller-panel
+python -m http.server 8080</code></pre>
+<p>Acesse:</p>
+<pre><code>http://127.0.0.1:8080</code></pre>
+<p>Para producao, hospede em servidor normal ou Pages/Hosting.</p>
+<p>No Firestore, revendedores ficam em:</p>
+<pre><code>resellers/{uid}</code></pre>
+<p>Campos comuns:</p>
+<pre><code>name: string
+status: &quot;active&quot;
+balance: number
+postpaidEnabled: true
+postpaidLimit: number</code></pre>
+<hr>
+<h2 id="18-landing-page">18. Landing page</h2>
+<p>Pasta:</p>
+<pre><code>landing/</code></pre>
+<p>Arquivos:</p>
+<pre><code>landing/index.html
+landing/assets/site.css
+landing/assets/site.js</code></pre>
+<p>Trocar link do APK:</p>
+<p>Procure em <code>landing/index.html</code> por:</p>
+<pre><code>mediafire</code></pre>
+<p>Troque pelo link final do APK.</p>
+<p>Trocar marca:</p>
+<pre><code>rg -n &quot;SUPERFLIX|Superflix&quot; landing</code></pre>
+<hr>
+<h2 id="19-tv-online-e-eventos">19. TV online e eventos</h2>
+<p>Hoje estao suspensos no app.</p>
+<p>Arquivos envolvidos:</p>
+<pre><code>app/src/main/java/com/superflixtv/app/data/Repository.kt
+app/src/main/java/com/superflixtv/app/data/SuperflixApi.kt
+app/src/main/java/com/superflixtv/app/MainActivity.kt</code></pre>
+<p>Para reativar:</p>
+<ol>
+<li>Escolher nova API de canais/eventos.</li>
+<li>Atualizar models se necessario.</li>
+<li>Ajustar `Repository.kt`.</li>
+<li>Remover cards de manutencao em `MainActivity.kt`.</li>
+<li>Garantir fallback para HTTP 500.</li>
+<li>Testar sem derrubar Home/catalogo.</li>
+</ol>
+<p>Regra de ouro: TV/eventos nunca podem impedir o catalogo de abrir.</p>
+<hr>
+<h2 id="20-instrucoes-para-ia-coding-assistant">20. Instrucoes para IA/coding assistant</h2>
+<p>Se uma IA for alterar o projeto, ela deve seguir isto:</p>
+<ul>
+<li>Nao fazer a Home depender de um unico endpoint externo.</li>
+<li>Nao reativar TV online sem fallback contra HTTP 500.</li>
+<li>Nao fazer SuperflixAPI ser obrigatoria para catalogo/busca.</li>
+<li>PLAYER 1 deve continuar sendo principal.</li>
+<li>Se alterar package name, lembrar do Firebase e `google-services.json`.</li>
+<li>Se alterar cor, procurar todos os hex `8B5CF6`.</li>
+<li>Se alterar nome, procurar `SUPERFLIX`, `Superflix`, `Superflix TV`.</li>
+<li>Se mexer no Worker, validar TypeScript.</li>
+<li>Se mexer no Android, compilar Kotlin.</li>
+<li>Nao adicionar sistema de licenca tecnica sem pedido explicito.</li>
+</ul>
+<p>Comandos de validacao:</p>
+<pre><code>$env:JAVA_HOME=&quot;$env:ProgramFiles\Android\Android Studio\jbr&quot;
+.\gradlew.bat :app:compileDebugKotlin --no-daemon</code></pre>
+<pre><code>cd cloudflare-worker
+npx tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --lib ES2022,WebWorker src/index.ts</code></pre>
+<hr>
+<h2 id="21-checklist-final-de-instalacao-do-zero">21. Checklist final de instalacao do zero</h2>
+<h3 id="firebase">Firebase</h3>
+<ul class="checklist">
+<li><span class="box"></span>Projeto Firebase criado.</li>
+<li><span class="box"></span>App Android criado com package correto.</li>
+<li><span class="box"></span>SHA-1 debug adicionado.</li>
+<li><span class="box"></span>SHA-256 debug adicionado.</li>
+<li><span class="box"></span>SHA-1 release adicionado.</li>
+<li><span class="box"></span>SHA-256 release adicionado.</li>
+<li><span class="box"></span>`google-services.json` baixado.</li>
+<li><span class="box"></span>`google-services.json` colocado em `app/google-services.json`.</li>
+<li><span class="box"></span>Auth Email/Password ativado.</li>
+<li><span class="box"></span>Auth Google ativado.</li>
+<li><span class="box"></span>Firestore criado em modo producao.</li>
+<li><span class="box"></span>Regras publicadas.</li>
+<li><span class="box"></span>Remote Config criado/publicado.</li>
+<li><span class="box"></span>Hosting publicado.</li>
+<li><span class="box"></span>Admin criado em `admins/{uid}`.</li>
+</ul>
+<h3 id="cloudflare">Cloudflare</h3>
+<ul class="checklist">
+<li><span class="box"></span>Conta Cloudflare criada.</li>
+<li><span class="box"></span>Wrangler logado.</li>
+<li><span class="box"></span>`wrangler.toml` ajustado.</li>
+<li><span class="box"></span>Secrets definidos.</li>
+<li><span class="box"></span>Worker deployado.</li>
+<li><span class="box"></span>`/health` testado.</li>
+<li><span class="box"></span>URL do Worker colocada no `local.properties`.</li>
+</ul>
+<h3 id="mercado-pago">Mercado Pago</h3>
+<ul class="checklist">
+<li><span class="box"></span>App/integracao criada.</li>
+<li><span class="box"></span>Access token configurado no Worker.</li>
+<li><span class="box"></span>Webhook secret configurado no Worker.</li>
+<li><span class="box"></span>Webhook apontando para `/webhooks/mercadopago`.</li>
+<li><span class="box"></span>Preco conferido em `wrangler.toml`.</li>
+<li><span class="box"></span>`pro_price` conferido no Remote Config.</li>
+</ul>
+<h3 id="android">Android</h3>
+<ul class="checklist">
+<li><span class="box"></span>Nome do app alterado.</li>
+<li><span class="box"></span>Package name alterado se necessario.</li>
+<li><span class="box"></span>Cores alteradas.</li>
+<li><span class="box"></span>Icone alterado.</li>
+<li><span class="box"></span>AdMob App ID alterado.</li>
+<li><span class="box"></span>Rewarded Ad Unit ID alterado.</li>
+<li><span class="box"></span>TMDB API Key no `local.properties`.</li>
+<li><span class="box"></span>`player.wrapperUrl` no `local.properties`.</li>
+<li><span class="box"></span>Build debug testado.</li>
+<li><span class="box"></span>Build release assinado gerado.</li>
+<li><span class="box"></span>APK testado em aparelho limpo.</li>
+</ul>
+<hr>
+<h2 id="22-erros-comuns">22. Erros comuns</h2>
+<h3 id="app-abre-mas-catalogo-nao-carrega">App abre mas catalogo nao carrega</h3>
+<p>Verifique:</p>
+<ul>
+<li>`tmdb.apiKey` no `local.properties`.</li>
+<li>Internet do aparelho.</li>
+<li>Se o APK foi rebuildado depois de alterar `local.properties`.</li>
+</ul>
+<h3 id="login-google-da-erro-10">Login Google da erro `10:`</h3>
+<p>Verifique:</p>
+<ul>
+<li>SHA-1/SHA-256 no Firebase.</li>
+<li>`google-services.json` novo.</li>
+<li>Package name igual.</li>
+<li>Clean/Rebuild.</li>
+</ul>
+<h3 id="firestore-permission-denied">Firestore permission denied</h3>
+<p>Verifique:</p>
+<ul>
+<li>Usuario logado.</li>
+<li>Regras publicadas.</li>
+<li>Admin criado corretamente.</li>
+<li>Campo `enabled` boolean.</li>
+</ul>
+<h3 id="pro-nao-abre-checkout">Pro nao abre checkout</h3>
+<p>Verifique:</p>
+<ul>
+<li>`subscription.workerUrl`.</li>
+<li>Worker `/health`.</li>
+<li>Secrets Mercado Pago.</li>
+<li>Webhook.</li>
+<li>Log do Worker.</li>
+</ul>
+<h3 id="player-nao-abre">Player nao abre</h3>
+<p>Verifique:</p>
+<ul>
+<li>PLAYER 1 configurado.</li>
+<li>`player.wrapperUrl`.</li>
+<li>Firebase Hosting publicado.</li>
+<li>Se o ID TMDB existe no player externo.</li>
+<li>Tente PLAYER 2/3/4.</li>
+</ul>
+<hr>
+<h2 id="23-arquivos-que-o-comprador-provavelmente-vai-editar">23. Arquivos que o comprador provavelmente vai editar</h2>
+<pre><code>app/build.gradle.kts
+app/src/main/AndroidManifest.xml
+app/src/main/java/com/superflixtv/app/MainActivity.kt
+app/src/main/java/com/superflixtv/app/WelcomeAuthUi.kt
+app/src/main/res/drawable/ic_launcher.xml
+app/google-services.json
+local.properties
+cloudflare-worker/wrangler.toml
+landing/index.html
+reseller-panel/index.html</code></pre>
+<hr>
+<h2 id="24-entrega-para-comprador">24. Entrega para comprador</h2>
+<p>Ao vender, entregue:</p>
+<ul>
+<li>Codigo-fonte completo.</li>
+<li>Este manual.</li>
+<li>Instrucoes de criar as contas proprias.</li>
+<li>Aviso de que APIs/players externos podem cair e precisam manutencao.</li>
+<li>Aviso de que AdMob/Mercado Pago/Firebase/TMDB precisam contas proprias.</li>
+<li>Opcional: build APK demo.</li>
+</ul>
+<p>Nao entregue suas secrets pessoais.</p>
+<p>Nunca entregue:</p>
+<pre><code>cloudflare-worker/.dev.vars
+backend/.env
+local.properties com suas chaves reais
+service-account.json do Firebase
+keystore sem acordo claro
+senhas de keystore</code></pre>
+<hr>
+<h2 id="25-guia-especifico-para-agentes-de-ia-como-codex-claude-cursor-e-copilot">25. Guia especifico para agentes de IA como Codex, Claude, Cursor e Copilot</h2>
+<p>Esta secao define claramente o que um agente de IA pode fazer sozinho no projeto e o que precisa ser feito por um humano. Use isto como instrucao operacional para qualquer IA que receber este codigo-fonte.</p>
+<h3 id="25-1-papel-esperado-da-ia">25.1 Papel esperado da IA</h3>
+<p>Um agente de IA pode atuar como desenvolvedor assistente do projeto. Ele pode:</p>
+<ul>
+<li>Ler e entender a estrutura do codigo.</li>
+<li>Explicar arquitetura e fluxos.</li>
+<li>Editar arquivos locais do projeto.</li>
+<li>Corrigir bugs de Kotlin/Compose.</li>
+<li>Corrigir bugs de TypeScript do Cloudflare Worker.</li>
+<li>Atualizar documentacao.</li>
+<li>Refatorar componentes.</li>
+<li>Criar novas telas.</li>
+<li>Criar novos ViewModels.</li>
+<li>Ajustar layout, textos, cores e marca.</li>
+<li>Adicionar ou remover dependencias Gradle, com cuidado.</li>
+<li>Alterar templates de player no codigo.</li>
+<li>Preparar instrucoes para Firebase, Cloudflare, Mercado Pago, TMDB e AdMob.</li>
+<li>Rodar comandos locais de build/teste quando tiver permissao.</li>
+</ul>
+<p>Um agente de IA nao deve assumir que tem acesso real as contas do comprador. Mesmo que consiga editar arquivos, algumas tarefas dependem de a pessoa humana entrar em pain?is externos.</p>
+<hr>
+<h3 id="25-2-o-que-a-ia-pode-fazer-sozinha-no-android">25.2 O que a IA pode fazer sozinha no Android</h3>
+<p>A IA pode editar diretamente estes arquivos quando a tarefa pedir alteracoes no app:</p>
+<pre><code>app/build.gradle.kts
+app/src/main/AndroidManifest.xml
+app/src/main/java/com/superflixtv/app/MainActivity.kt
+app/src/main/java/com/superflixtv/app/WelcomeAuthUi.kt
+app/src/main/java/com/superflixtv/app/CatalogUi.kt
+app/src/main/java/com/superflixtv/app/CatalogViewModel.kt
+app/src/main/java/com/superflixtv/app/AuthViewModel.kt
+app/src/main/java/com/superflixtv/app/AdminUi.kt
+app/src/main/java/com/superflixtv/app/AdminViewModel.kt
+app/src/main/java/com/superflixtv/app/LibraryUi.kt
+app/src/main/java/com/superflixtv/app/LibraryViewModel.kt
+app/src/main/java/com/superflixtv/app/WatchProgressViewModel.kt
+app/src/main/java/com/superflixtv/app/PremiumViewModel.kt
+app/src/main/java/com/superflixtv/app/AppConfigViewModel.kt
+app/src/main/res/values/styles.xml
+app/src/main/res/drawable/ic_launcher.xml</code></pre>
+<p>Tarefas Android que a IA consegue fazer:</p>
+<ul>
+<li>Trocar nome visual no header e telas.</li>
+<li>Trocar label do app no Manifest.</li>
+<li>Trocar cores hardcoded.</li>
+<li>Criar uma tela nova.</li>
+<li>Melhorar UI de Home, Catalogo, Minha Lista ou Player.</li>
+<li>Trocar textos e mensagens.</li>
+<li>Melhorar tratamento de erro.</li>
+<li>Adicionar filtros e abas.</li>
+<li>Adicionar campos no painel Admin.</li>
+<li>Alterar ordem dos players.</li>
+<li>Alterar custo de moedas padrao no Remote Config local.</li>
+<li>Corrigir crashes do Logcat.</li>
+<li>Ajustar regras de navegacao.</li>
+<li>Corrigir import/deprecations.</li>
+<li>Adicionar novas chaves `BuildConfig` no Gradle.</li>
+</ul>
+<p>Depois de mexer no Android, a IA deve rodar:</p>
+<pre><code>$env:JAVA_HOME=&quot;$env:ProgramFiles\Android\Android Studio\jbr&quot;
+.\gradlew.bat :app:compileDebugKotlin --no-daemon</code></pre>
+<p>Se a tarefa envolver APK, a IA pode orientar o humano a rodar:</p>
+<pre><code>.\gradlew.bat :app:assembleDebug --no-daemon
+.\gradlew.bat :app:assembleRelease --no-daemon</code></pre>
+<p>A IA nao deve prometer que o APK funciona em producao sem teste real em aparelho.</p>
+<hr>
+<h3 id="25-3-o-que-a-ia-pode-fazer-sozinha-no-cloudflare-worker">25.3 O que a IA pode fazer sozinha no Cloudflare Worker</h3>
+<p>A IA pode editar:</p>
+<pre><code>cloudflare-worker/src/index.ts
+cloudflare-worker/wrangler.toml
+cloudflare-worker/package.json</code></pre>
+<p>Tarefas que a IA consegue fazer:</p>
+<ul>
+<li>Criar endpoint novo.</li>
+<li>Corrigir CORS.</li>
+<li>Ajustar checkout Mercado Pago.</li>
+<li>Ajustar webhook.</li>
+<li>Ajustar painel revendedor.</li>
+<li>Adicionar validacao de entrada.</li>
+<li>Melhorar tratamento de erro.</li>
+<li>Corrigir TypeScript.</li>
+<li>Alterar preco padrao em `wrangler.toml`.</li>
+<li>Adicionar novas variaveis em `[vars]`.</li>
+<li>Documentar secrets necessarios.</li>
+</ul>
+<p>Depois de mexer no Worker, a IA deve rodar:</p>
+<pre><code>cd cloudflare-worker
+npx tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --lib ES2022,WebWorker src/index.ts</code></pre>
+<p>Se autorizado pelo humano, a IA pode orientar ou executar:</p>
+<pre><code>npx wrangler deploy</code></pre>
+<p>Mas a IA nao deve inventar secrets. Secrets sempre precisam vir do humano.</p>
+<hr>
+<h3 id="25-4-o-que-a-ia-pode-fazer-sozinha-no-firebase-local">25.4 O que a IA pode fazer sozinha no Firebase local</h3>
+<p>A IA pode editar arquivos locais do Firebase:</p>
+<pre><code>firebase.json
+firestore.rules
+firestore.indexes.json
+hosting/player.html
+hosting/subscription-return.html</code></pre>
+<p>Tarefas que a IA consegue fazer:</p>
+<ul>
+<li>Ajustar regras Firestore.</li>
+<li>Adicionar regras para novas colecoes.</li>
+<li>Corrigir permissao negada identificada em Logcat.</li>
+<li>Ajustar headers do Hosting.</li>
+<li>Editar `player.html`.</li>
+<li>Documentar comandos de deploy.</li>
+</ul>
+<p>Depois de mexer nas regras, a IA pode validar sintaxe indiretamente orientando deploy:</p>
+<pre><code>firebase deploy --only firestore:rules</code></pre>
+<p>ou:</p>
+<pre><code>npx firebase-tools deploy --only firestore:rules</code></pre>
+<p>A IA nao deve relaxar regras de seguranca amplamente, como <code>allow read, write: if true</code>, salvo pedido explicito e temporario do humano, e mesmo assim deve alertar sobre risco.</p>
+<hr>
+<h3 id="25-5-o-que-obrigatoriamente-precisa-ser-feito-por-humano-no-firebase-console">25.5 O que obrigatoriamente precisa ser feito por humano no Firebase Console</h3>
+<p>A IA nao consegue fazer com seguranca sem acesso a conta do comprador:</p>
+<ul>
+<li>Criar projeto Firebase.</li>
+<li>Criar app Android no Firebase.</li>
+<li>Baixar `google-services.json`.</li>
+<li>Ativar Email/Password no Authentication.</li>
+<li>Ativar Google Login no Authentication.</li>
+<li>Adicionar SHA-1 e SHA-256.</li>
+<li>Criar Firestore pelo Console.</li>
+<li>Ativar Remote Config pela primeira vez.</li>
+<li>Publicar Remote Config.</li>
+<li>Ativar Cloud Messaging/campanhas.</li>
+<li>Configurar App Check/Play Integrity.</li>
+<li>Criar service account e baixar JSON privado.</li>
+<li>Criar usuario admin manualmente se o app ainda nao tiver painel para isso.</li>
+</ul>
+<p>A IA deve explicar passo a passo para o humano e pedir os arquivos/valores resultantes, por exemplo:</p>
+<pre><code>Me envie o arquivo app/google-services.json atualizado.
+Me envie o Worker URL depois do deploy.
+Me envie o Access Token do Mercado Pago para configurar como secret.
+Me envie o SHA-256 release se quiser validar Google Login em APK distribuido.</code></pre>
+<p>Nunca pe?a que o humano cole secrets em arquivos versionados se puder usar secret manager/CLI.</p>
+<hr>
+<h3 id="25-6-o-que-obrigatoriamente-precisa-ser-feito-por-humano-no-cloudflare">25.6 O que obrigatoriamente precisa ser feito por humano no Cloudflare</h3>
+<p>A IA pode preparar o Worker, mas o humano normalmente precisa:</p>
+<ul>
+<li>Criar conta Cloudflare.</li>
+<li>Fazer login com `npx wrangler login`.</li>
+<li>Autorizar Wrangler no navegador.</li>
+<li>Escolher nome/subdominio do Worker.</li>
+<li>Rodar `wrangler secret put` com valores reais.</li>
+<li>Confirmar deploy.</li>
+<li>Copiar URL final do Worker.</li>
+<li>Configurar dominio customizado, se desejar.</li>
+</ul>
+<p>A IA pode escrever os comandos, mas os valores secretos devem ser fornecidos pelo humano.</p>
+<p>Secrets comuns:</p>
+<pre><code>MERCADOPAGO_ACCESS_TOKEN
+MERCADOPAGO_WEBHOOK_SECRET
+FIREBASE_CLIENT_EMAIL
+FIREBASE_PRIVATE_KEY
+TMDB_API_KEY</code></pre>
+<p>A IA pode verificar TypeScript antes do deploy, mas nao deve dizer que o Worker esta funcional sem testar <code>/health</code> apos deploy.</p>
+<hr>
+<h3 id="25-7-o-que-obrigatoriamente-precisa-ser-feito-por-humano-no-mercado-pago">25.7 O que obrigatoriamente precisa ser feito por humano no Mercado Pago</h3>
+<p>A IA nao deve tentar criar conta ou acessar painel de pagamento pelo usuario.</p>
+<p>Humano precisa:</p>
+<ul>
+<li>Criar app/integracao Mercado Pago.</li>
+<li>Escolher checkout/assinaturas.</li>
+<li>Copiar Access Token.</li>
+<li>Configurar webhook URL:</li>
+</ul>
+<pre><code>https://SEU-WORKER.workers.dev/webhooks/mercadopago</code></pre>
+<ul>
+<li>Copiar webhook secret.</li>
+<li>Escolher modo teste ou producao.</li>
+<li>Testar pagamento real ou sandbox.</li>
+</ul>
+<p>A IA pode ajustar o Worker para processar os eventos, mas nao deve inventar tokens ou secrets.</p>
+<hr>
+<h3 id="25-8-o-que-obrigatoriamente-precisa-ser-feito-por-humano-no-admob">25.8 O que obrigatoriamente precisa ser feito por humano no AdMob</h3>
+<p>Humano precisa:</p>
+<ul>
+<li>Criar conta AdMob.</li>
+<li>Criar app Android.</li>
+<li>Criar bloco Rewarded Ad.</li>
+<li>Copiar App ID.</li>
+<li>Copiar Ad Unit ID.</li>
+<li>Confirmar politicas e consentimento.</li>
+</ul>
+<p>A IA pode trocar no codigo:</p>
+<pre><code>AndroidManifest.xml -&gt; com.google.android.gms.ads.APPLICATION_ID
+app/build.gradle.kts -&gt; ADMOB_REWARDED_ID</code></pre>
+<p>Mas o humano deve fornecer os IDs reais.</p>
+<hr>
+<h3 id="25-9-o-que-obrigatoriamente-precisa-ser-feito-por-humano-no-tmdb">25.9 O que obrigatoriamente precisa ser feito por humano no TMDB</h3>
+<p>Humano precisa:</p>
+<ul>
+<li>Criar conta TMDB.</li>
+<li>Gerar API Key.</li>
+<li>Informar a chave para colocar em `local.properties` ou em secret do Worker.</li>
+</ul>
+<p>A IA pode orientar:</p>
+<pre><code>tmdb.apiKey=SUA_CHAVE_TMDB</code></pre>
+<p>E no Worker:</p>
+<pre><code>npx wrangler secret put TMDB_API_KEY</code></pre>
+<hr>
+<h3 id="25-10-regras-para-trocar-marca-com-ia">25.10 Regras para trocar marca com IA</h3>
+<p>Quando o pedido for &quot;trocar marca&quot;, a IA deve procurar e alterar:</p>
+<pre><code>rg -n &quot;SUPERFLIX|Superflix|Superflix TV&quot; app landing reseller-panel docs</code></pre>
+<p>Arquivos provaveis:</p>
+<pre><code>app/src/main/AndroidManifest.xml
+app/src/main/java/com/superflixtv/app/MainActivity.kt
+app/src/main/java/com/superflixtv/app/WelcomeAuthUi.kt
+landing/index.html
+landing/README.md
+reseller-panel/index.html
+reseller-panel/README.md
+docs/AI_PROJECT_GUIDE.md</code></pre>
+<p>A IA deve perguntar ao humano:</p>
+<pre><code>Qual novo nome do app?
+Qual nome curto em caixa alta para o header?
+Qual dominio/site de suporte?
+Quer trocar package name tambem?</code></pre>
+<p>Se trocar package name, a IA deve lembrar que isso exige novo app Android no Firebase e novo <code>google-services.json</code>.</p>
+<hr>
+<h3 id="25-11-regras-para-trocar-cores-com-ia">25.11 Regras para trocar cores com IA</h3>
+<p>Quando o pedido for &quot;trocar cor&quot;, a IA deve buscar:</p>
+<pre><code>rg -n &quot;8B5CF6|6200EE|Purple|WelcomePurple|0xFF&quot; app/src/main/java landing reseller-panel</code></pre>
+<p>Arquivos provaveis:</p>
+<pre><code>MainActivity.kt
+WelcomeAuthUi.kt
+CatalogUi.kt
+AdminUi.kt
+LibraryUi.kt
+landing/assets/site.css
+reseller-panel/styles.css</code></pre>
+<p>A IA deve preferir uma cor principal em hexadecimal no formato:</p>
+<pre><code>#RRGGBB</code></pre>
+<p>E converter para Compose:</p>
+<pre><code>Color(0xFFRRGGBB)</code></pre>
+<p>Exemplo:</p>
+<pre><code>#2563EB -&gt; Color(0xFF2563EB)</code></pre>
+<p>Depois de alterar cores Android, compilar.</p>
+<hr>
+<h3 id="25-12-regras-para-trocar-package-name-com-ia">25.12 Regras para trocar package name com IA</h3>
+<p>Trocar package name e delicado. A IA deve avisar que isso exige Firebase novo/atualizado.</p>
+<p>Passos:</p>
+<ol>
+<li>Alterar `namespace` e `applicationId` em `app/build.gradle.kts`.</li>
+<li>Opcionalmente renomear pastas e pacotes Kotlin.</li>
+<li>Criar app Android no Firebase com novo package.</li>
+<li>Adicionar SHA.</li>
+<li>Baixar novo `google-services.json`.</li>
+<li>Colocar em `app/google-services.json`.</li>
+<li>Clean/Rebuild.</li>
+</ol>
+<p>A IA nao deve apenas trocar <code>applicationId</code> e dizer que acabou. Deve avisar das dependencias externas.</p>
+<hr>
+<h3 id="25-13-regras-para-mexer-em-players-com-ia">25.13 Regras para mexer em players com IA</h3>
+<p>Arquivos principais:</p>
+<pre><code>app/src/main/java/com/superflixtv/app/CatalogUi.kt
+app/src/main/java/com/superflixtv/app/MainActivity.kt
+hosting/player.html</code></pre>
+<p>A IA pode:</p>
+<ul>
+<li>Trocar URL padrao de PLAYER 1.</li>
+<li>Adicionar PLAYER 5.</li>
+<li>Reordenar players.</li>
+<li>Ajustar wrapper.</li>
+<li>Melhorar botao de reportar player.</li>
+<li>Alterar bloqueio de popups publicitarios para nao tirar o usuario do player.</li>
+</ul>
+<p>A IA deve preservar:</p>
+<ul>
+<li>PLAYER 1 como principal, salvo pedido contrario.</li>
+<li>Fallbacks PLAYER 2/3/4.</li>
+<li>Sistema de reportar player quebrado.</li>
+<li>Tela cheia horizontal.</li>
+<li>PiP sem botoes extras.</li>
+</ul>
+<p>A IA nao deve fazer a abertura do player depender da SuperflixAPI se ela estiver instavel.</p>
+<hr>
+<h3 id="25-14-regras-para-mexer-no-catalogo-com-ia">25.14 Regras para mexer no catalogo com IA</h3>
+<p>Arquivos principais:</p>
+<pre><code>CatalogViewModel.kt
+CatalogUi.kt
+data/CatalogApi.kt
+data/CatalogModels.kt</code></pre>
+<p>Estado atual:</p>
+<ul>
+<li>Catalogo usa TMDB.</li>
+<li>Busca usa TMDB.</li>
+<li>SuperflixAPI nao deve ser dependencia obrigatoria.</li>
+</ul>
+<p>A IA pode:</p>
+<ul>
+<li>Adicionar novos filtros.</li>
+<li>Melhorar busca.</li>
+<li>Criar secoes por genero.</li>
+<li>Criar recomendacoes.</li>
+<li>Melhorar tela de detalhes.</li>
+<li>Adicionar elenco, trailer, similares.</li>
+</ul>
+<p>A IA deve cuidar para:</p>
+<ul>
+<li>Nao quebrar cache.</li>
+<li>Nao travar a Home se TMDB falhar.</li>
+<li>Exibir mensagem amigavel quando nada for encontrado.</li>
+</ul>
+<hr>
+<h3 id="25-15-regras-para-mexer-em-firestore-rules-com-ia">25.15 Regras para mexer em Firestore Rules com IA</h3>
+<p>Arquivo:</p>
+<pre><code>firestore.rules</code></pre>
+<p>A IA pode adicionar regras para novas colecoes, mas deve seguir padrao:</p>
+<ul>
+<li>Usuario so acessa seus dados.</li>
+<li>Admin acessa dados administrativos.</li>
+<li>Escrita sensivel nao fica aberta.</li>
+<li>Transacoes de moedas precisam validar valor/campos.</li>
+</ul>
+<p>A IA nao deve usar:</p>
+<pre><code>allow read, write: if true;</code></pre>
+<p>exceto se o humano pedir explicitamente para teste temporario, e mesmo assim deve alertar que e inseguro.</p>
+<p>Depois de alterar regras, instruir:</p>
+<pre><code>firebase deploy --only firestore:rules</code></pre>
+<hr>
+<h3 id="25-16-regras-para-mexer-em-cobranca-pro-com-ia">25.16 Regras para mexer em cobranca/Pro com IA</h3>
+<p>Arquivos principais:</p>
+<pre><code>PremiumViewModel.kt
+cloudflare-worker/src/index.ts
+cloudflare-worker/wrangler.toml
+firestore.rules</code></pre>
+<p>A IA pode:</p>
+<ul>
+<li>Ajustar preco no `wrangler.toml`.</li>
+<li>Ajustar texto do plano no app.</li>
+<li>Corrigir checkout.</li>
+<li>Corrigir webhook.</li>
+<li>Criar novas telas de status Pro.</li>
+</ul>
+<p>A IA deve lembrar:</p>
+<ul>
+<li>Valor real cobrado vem do Worker/Mercado Pago.</li>
+<li>Valor exibido no app vem do Remote Config `pro_price`.</li>
+<li>Os dois precisam ficar coerentes.</li>
+</ul>
+<p>A IA nao deve simular pagamento aprovado sem deixar claro que e ambiente de teste.</p>
+<hr>
+<h3 id="25-17-regras-para-documentacao-com-ia">25.17 Regras para documentacao com IA</h3>
+<p>Ao atualizar documentacao, a IA deve:</p>
+<ul>
+<li>Manter `docs/AI_PROJECT_GUIDE.md` como fonte principal.</li>
+<li>Atualizar tambem `docs/AI_PROJECT_GUIDE.html`.</li>
+<li>Nao deixar instrucoes antigas contraditorias.</li>
+<li>Remover referencias a features removidas.</li>
+<li>Manter comandos em PowerShell, pois o projeto esta em Windows.</li>
+<li>Explicar claramente o que e humano e o que e codigo.</li>
+</ul>
+<hr>
+<h3 id="25-18-checklist-da-ia-antes-de-finalizar-uma-tarefa">25.18 Checklist da IA antes de finalizar uma tarefa</h3>
+<p>Antes de responder que terminou, a IA deve verificar:</p>
+<ul class="checklist">
+<li><span class="box"></span>Arquivos alterados fazem parte do escopo pedido.</li>
+<li><span class="box"></span>Nao removeu configuracoes sensiveis sem necessidade.</li>
+<li><span class="box"></span>Nao abriu regras inseguras no Firestore.</li>
+<li><span class="box"></span>Nao colocou secrets em arquivos versionados.</li>
+<li><span class="box"></span>Compilou Android se mexeu em Kotlin/Gradle.</li>
+<li><span class="box"></span>Validou TypeScript se mexeu no Worker.</li>
+<li><span class="box"></span>Atualizou documentacao se mudou fluxo de instalacao.</li>
+<li><span class="box"></span>Informou claramente o que o humano ainda precisa fazer em painel externo.</li>
+</ul>
+<hr>
+<h3 id="25-19-respostas-esperadas-de-uma-ia-quando-faltar-acesso-externo">25.19 Respostas esperadas de uma IA quando faltar acesso externo</h3>
+<p>Se faltar acesso ao Firebase Console, responder assim:</p>
+<pre><code>Eu consigo preparar os arquivos locais e te dizer exatamente onde clicar no Firebase, mas preciso que voce faca a etapa no Console e me envie o arquivo/valor gerado.</code></pre>
+<p>Se faltar secret:</p>
+<pre><code>Nao vou inventar esse secret. Rode o comando abaixo e cole o valor quando o terminal pedir.</code></pre>
+<p>Se faltar conta Mercado Pago/AdMob/TMDB:</p>
+<pre><code>Essa etapa precisa ser feita na conta do titular. Eu posso continuar no codigo enquanto voce cria a chave.</code></pre>
+<hr>
+<h3 id="25-20-tarefas-que-uma-ia-nao-deve-fazer-sem-autorizacao-explicita">25.20 Tarefas que uma IA nao deve fazer sem autorizacao explicita</h3>
+<ul>
+<li>Publicar deploy em producao.</li>
+<li>Trocar package name.</li>
+<li>Trocar regras Firestore para algo mais aberto.</li>
+<li>Remover App Check.</li>
+<li>Remover login.</li>
+<li>Remover pagamento.</li>
+<li>Remover creditos/moedas.</li>
+<li>Alterar preco real do plano.</li>
+<li>Apagar arquivos de build/producao.</li>
+<li>Apagar keystore.</li>
+<li>Comitar secrets.</li>
+<li>Adicionar sistema de licenca tecnica.</li>
+</ul>
+<hr>
+<h3 id="25-21-tarefas-que-uma-ia-pode-sugerir-mas-nao-executar-sozinha">25.21 Tarefas que uma IA pode sugerir, mas nao executar sozinha</h3>
+<ul>
+<li>Criar projeto Firebase.</li>
+<li>Criar app AdMob.</li>
+<li>Criar app Mercado Pago.</li>
+<li>Ativar webhook Mercado Pago.</li>
+<li>Comprar/configurar dominio.</li>
+<li>Publicar na Play Store.</li>
+<li>Ativar enforcement do App Check.</li>
+<li>Ativar cobranca paga em Firebase/Google Cloud.</li>
+<li>Trocar titularidade de contas.</li>
+</ul>
+<hr>
+<h3 id="25-22-prompt-recomendado-para-entregar-este-projeto-a-uma-ia">25.22 Prompt recomendado para entregar este projeto a uma IA</h3>
+<p>Use este prompt ao abrir o projeto em Codex, Claude ou outra IA:</p>
+<pre><code>Leia docs/AI_PROJECT_GUIDE.md antes de alterar qualquer coisa. Siga a secao 25 sobre o que uma IA pode ou nao fazer. Antes de mexer em Firebase, Cloudflare, Mercado Pago, AdMob, package name, regras Firestore ou deploy, explique o impacto e pe?a confirmacao se for uma acao externa ou sensivel. Depois de alterar Kotlin, rode compileDebugKotlin. Depois de alterar o Worker, rode tsc.</code></pre></main></div><script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('nav a[data-target]').forEach(function(link){
+    link.removeAttribute('href');
+    link.addEventListener('click', function(event){
+      event.preventDefault();
+      var id = link.getAttribute('data-target');
+      var target = document.getElementById(id);
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+});
+</script></body></html>
